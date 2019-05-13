@@ -1,0 +1,12 @@
+{
+  "name": "fidelis-server-conf",
+  "version": "2.9",
+  "private": true,
+  "scripts": {
+    "start": "ws --https --rewrite '/webapp/* -> https://demo.fidelissecurity.com/rest/$1'",
+    "upload": "sshpass -p "FidelisS@@2019P@ssw0rd" scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null * FidelisSuperUser@demo.fidelissecurity.com:/opt/tomcat/webapps/ROOT/"
+  },
+  "devDependencies": {
+    "local-web-server": "2.6.1"
+  }
+}

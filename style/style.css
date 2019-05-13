@@ -1,0 +1,160 @@
+:root {
+  --mediumSpacing: 1.4rem;
+  --defaultBorderRadius: 0.3em;
+  --siteBackground: #666;
+  --contentBackground: #f9f9f9;
+  --contentBorderColor: #eaeaea;
+  --buttonBackground: #F2F1F1;
+  --inputBackground: #fff;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--siteBackground);
+  color: #e6e6e6;
+  line-height: 1.4em;
+  margin: var(--mediumSpacing);
+  padding: 0;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+th { 
+  text-align: left; 
+}
+fieldset, dialog {
+  background: var(--contentBackground);
+  color: #666;
+  box-shadow: rgba(0, 0, 0, 0.13) 0 0 1em 0;
+  border: 0;
+  border-radius: var(--defaultBorderRadius);
+}
+dialog::backdrop {
+  background: rgba(0,0,0,0.5);
+}
+legend {
+  background: var(--contentBackground);
+  border-radius: var(--defaultBorderRadius) var(--defaultBorderRadius) 0 0;
+  padding: 0.2em 0.5em;
+  position: relative;
+  left: -1em;
+  top: -0.5em;
+  margin-bottom: -0.65em;
+}
+fieldset {
+  position: relative;
+  top: 0.5em;
+  padding: 1em;
+}
+button, input, select {
+  outline: 0;
+  display: inline-block;
+  font-family: inherit;
+  padding: 0.3em 0.7em;
+  font-size: 1em;
+  border-radius: 0.25em;
+  border: 1px solid var(--contentBorderColor);
+  background-color: var(--inputBackground);
+}
+button, input[type=button] {
+  margin-right: 1px;
+  cursor: pointer;
+  border-bottom-width: 3px;
+  background-color: var(--buttonBackground);
+  transition: background-color 0.5s, border-color 0.5s;
+}
+button:active, input[type=button]:active {
+  top: 2px;
+  position: relative;
+  border-bottom-width: 1px; 
+}
+[disabled] {
+  pointer-events: none;
+  opacity: 0.4;
+}
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+p {
+  margin: 0;
+}
+
+.window-title {
+  font-size: 1.2em;
+  border-bottom: 1px solid var(--contentBorderColor);
+  padding-bottom: 0.5em;
+  white-space: nowrap;
+  padding-right: 1em;
+}
+.align-right {
+  text-align: right;
+}
+.important {
+  color: red;
+  font-weight: bold;
+}
+.form-buttons {
+  text-align: right;
+  margin-top: 1em;
+}
+
+.data-table {
+  width: 100%;
+  margin-top: 1em;
+  border-collapse: collapse;
+}
+.data-table td, .data-table th {
+  border: 1px solid var(--contentBorderColor);
+  padding: 0.2em;
+}
+
+.spin {
+  display: inline-block;
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+/* flex-box stuff (copied from Deception UI) */
+.split-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*flex base options (put on the base flex element, to apply to all columns)*/
+.split-line.box-spacing>* ~ *, .split-line.extra-box-spacing>* ~ * {
+  margin-left: var(--mediumSpacing);
+}
+.split-line.center-horizontly {
+  justify-content: center;
+}
+.split-line.stick-to-start {
+  justify-content: flex-start;
+}
+.split-line.top-vertically {
+  align-items: flex-start;
+}
+.split-line.wrap {
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.split-line.equal-height {
+  align-items: stretch;
+}
+.split-line.reverse {
+  flex-direction: row-reverse;
+}
+/*column specific options*/
+.split-line .max-column {
+  flex-grow: 200;
+}
+.split-line .grow {
+  flex-grow: 1;
+}
